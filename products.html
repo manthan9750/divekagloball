@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Products | Gud Bite - Divekaa Global</title>
 
-  <link rel="stylesheet" href="assets/css/style.css"/>
-
+<link rel="stylesheet" href="assets/css/style.css"/>
+<link rel="stylesheet" href="assets/css/products.css"/>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +16,7 @@
 <body>
 
   <!-- ================= HEADER ================= -->
-  <header class="header">
+<section class="page-header products-header">
     <div class="container nav-container">
 
       <div class="logo">
@@ -47,20 +48,29 @@
   <!-- ================= PAGE HEADER ================= -->
   <section class="page-header">
     <div class="container">
-      <h1>Our Flavors</h1>
-      <p>Explore all Gud Bite jaggery cube variations</p>
+      <h1>Explore Gud Bite Flavors</h1>
+
+<p>
+Discover our thoughtfully crafted range of jaggery cubes,
+blending traditional goodness with modern flavors.
+</p>
     </div>
   </section>
 
 
   <!-- ================= SEARCH + FILTER ================= -->
-  <section class="product-controls">
-    <div class="container controls-grid">
+<section class="product-controls products-page">
+    <div class="container controls-grid products-toolbar">
 
       <!-- Search -->
       <div class="search-box">
-        <input type="text" id="search-input" placeholder="Search flavors...">
-      </div>
+  <span class="search-icon">🔍</span>
+  <input
+    type="text"
+    id="search-input"
+    placeholder="Search flavors..."
+  >
+</div>
 
       <!-- Filter -->
       <div class="filter-box">
@@ -81,7 +91,7 @@
   <section class="products-section">
     <div class="container">
 
-      <div class="product-grid" id="product-grid">
+      <div class="product-grid products-grid" id="product-grid">
         <!-- JS renders products here -->
       </div>
 
