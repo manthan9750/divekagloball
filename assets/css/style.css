@@ -376,27 +376,38 @@ body {
     display: none;
   }
 }
-/* ================= SEARCH BAR ================= */
+/* ================= PREMIUM SEARCH BAR ================= */
 
 .search-box {
   display: flex;
   align-items: center;
-  background: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  gap: 8px;
+  background: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.search-box:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 6px 18px rgba(182,139,34,0.2);
 }
 
 .search-box input {
+  width: 100%;
   border: none;
   outline: none;
-  width: 100%;
   font-size: 14px;
+  background: transparent;
 }
 
+/* SEARCH ICON */
 .search-box::before {
   content: "🔍";
-  margin-right: 8px;
+  font-size: 14px;
+  opacity: 0.6;
 }
 /* ================= GLOBAL IMAGE CONTROL ================= */
 
@@ -418,3 +429,52 @@ img {
   object-fit: cover;
   border-radius: 12px;
 }
+/* ================= PREMIUM ANIMATIONS ================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply smooth entrance */
+.hero,
+.product-card,
+.section-title,
+.why-card {
+  animation: fadeUp 0.6s ease both;
+}
+
+/* Smooth hover system upgrade */
+.product-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+}
+
+/* Button micro interaction */
+.btn {
+  transition: all 0.25s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
