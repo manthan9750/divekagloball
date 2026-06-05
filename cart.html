@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart | Divekaa Global - Gud Bite</title>
+
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="container nav-container">
+
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/images/logo.png" alt="Divekaa Global Logo">
+          <span>Divekaa Global</span>
+        </a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="benefits.html">Benefits</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="wishlist.html" class="icon-btn">♡</a>
+        <a href="cart.html" class="icon-btn active">
+          🛒 <span id="cart-count">0</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ================= PAGE HEADER ================= -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Your Cart</h1>
+      <p>Review your selected Gud Bite flavors</p>
+    </div>
+  </section>
+
+
+  <!-- ================= CART SECTION ================= -->
+  <section class="cart-section">
+    <div class="container cart-grid">
+
+      <!-- CART ITEMS -->
+      <div class="cart-items" id="cart-items">
+        <!-- JS renders cart items here -->
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="cart-summary">
+
+        <h2>Order Summary</h2>
+
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="subtotal">₹0</span>
+        </div>
+
+        <div class="summary-line">
+          <span>Shipping</span>
+          <span id="shipping">₹50</span>
+        </div>
+
+        <div class="summary-line total">
+          <span>Total</span>
+          <span id="total">₹0</span>
+        </div>
+
+        <button class="btn primary" id="checkout-btn">
+          Proceed to Checkout
+        </button>
+
+        <p class="note">Secure checkout powered by Divekaa Global</p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= EMPTY STATE ================= -->
+  <section class="empty-cart" id="empty-cart" style="display:none;">
+    <div class="container">
+
+      <h2>Your Cart is Empty</h2>
+      <p>Explore delicious Gud Bite flavors</p>
+
+      <a href="products.html" class="btn primary">Shop Now</a>
+
+    </div>
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-grid">
+
+      <div>
+        <h3>Divekaa Global</h3>
+        <p>Global Reach, Indian Roots</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Support</h4>
+        <a href="wishlist.html">Wishlist</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Divekaa Global. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+
+</body>
+</html>
