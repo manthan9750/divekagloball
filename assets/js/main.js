@@ -218,3 +218,40 @@ document.addEventListener("DOMContentLoaded", () => {
   loadProductPage();
 
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("search-input");
+
+  if (!searchInput) return;
+
+  searchInput.addEventListener("input", (e) => {
+    const value = e.target.value.toLowerCase();
+
+    const filtered = PRODUCTS.filter(p =>
+      p.name.toLowerCase().includes(value) ||
+      p.flavor.toLowerCase().includes(value)
+    );
+
+    const container = document.getElementById("product-grid");
+
+    if (container) {
+      container.innerHTML = filtered.map(product => `
+        <div class="product-card">
+          <img src="${product.image}" />
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <span class="price">₹${product.price}</span>
+
+          <div class="product-actions">
+            <button onclick='addToCart(${JSON.stringify(product).replace(/"/g, "&quot;")})'>
+              Add to Cart
+            </button>
+
+            <a href="product.html?id=${product.id}">
+              View Product
+            </a>
+          </div>
+        </div>
+      `).join("");
+    }
+  });
+});
