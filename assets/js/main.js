@@ -1,6 +1,6 @@
 /* =========================================
    DIVEKAA GLOBAL - MAIN SYSTEM ENGINE
-   Products DB + Rendering + Routing
+   CLEAN PRODUCTION VERSION (FIXED)
 ========================================= */
 
 /* ---------- PRODUCT DATABASE ---------- */
@@ -103,12 +103,12 @@ const PRODUCTS = [
   }
 ];
 
-/* ---------- GET PRODUCT BY ID ---------- */
+/* ---------- GET PRODUCT ---------- */
 function getProductById(id) {
   return PRODUCTS.find(p => p.id === id);
 }
 
-/* ---------- RENDER PRODUCTS (GRID) ---------- */
+/* ---------- RENDER PRODUCTS GRID ---------- */
 function renderProducts(containerId, filter = "all") {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -123,7 +123,6 @@ function renderProducts(containerId, filter = "all") {
     <div class="product-card">
 
       <img src="${product.image}" alt="${product.name}">
-
       <h3>${product.name}</h3>
       <p>${product.description}</p>
 
@@ -131,11 +130,11 @@ function renderProducts(containerId, filter = "all") {
 
       <div class="product-actions">
 
-        <button onclick="addToCart(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+        <button onclick='addToCart(${JSON.stringify(product).replace(/"/g, "&quot;")})'>
           Add to Cart
         </button>
 
-        <button onclick="addToWishlist(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+        <button onclick='addToWishlist(${JSON.stringify(product).replace(/"/g, "&quot;")})'>
           ♡
         </button>
 
@@ -158,18 +157,18 @@ function renderFeaturedProducts() {
     <div class="product-card">
 
       <img src="${product.image}" alt="${product.name}">
-
       <h3>${product.name}</h3>
-
       <span class="price">₹${product.price}</span>
 
       <div class="product-actions">
 
-        <button onclick="addToCart(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+        <button onclick='addToCart(${JSON.stringify(product).replace(/"/g, "&quot;")})'>
           Add to Cart
         </button>
 
-        <a href="product.html?id=${product.id}">View</a>
+        <a href="product.html?id=${product.id}">
+          View
+        </a>
 
       </div>
 
@@ -179,6 +178,7 @@ function renderFeaturedProducts() {
 
 /* ---------- PRODUCT PAGE LOADER ---------- */
 function loadProductPage() {
+
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
@@ -195,35 +195,54 @@ function loadProductPage() {
   if (priceEl) priceEl.textContent = "₹" + product.price;
 
   const cartBtn = document.getElementById("add-to-cart-btn");
-  if (cartBtn) {
-    cartBtn.onclick = () => addToCart(product);
-  }
+  if (cartBtn) cartBtn.onclick = () => addToCart(product);
 
   const wishlistBtn = document.getElementById("wishlist-btn");
-  if (wishlistBtn) {
-    wishlistBtn.onclick = () => addToWishlist(product);
-  }
+  if (wishlistBtn) wishlistBtn.onclick = () => addToWishlist(product);
+
+  // ✅ IMPORTANT FIX
+  loadRelatedProducts(product);
 }
 
-/* ---------- INIT SYSTEM ---------- */
-document.addEventListener("DOMContentLoaded", () => {
+/* ---------- RELATED PRODUCTS (FIXED) ---------- */
+function loadRelatedProducts(currentProduct) {
 
-  renderFeaturedProducts();
+  if (!currentProduct) return;
 
-  const productGrid = document.getElementById("product-grid");
-  if (productGrid) {
-    renderProducts("product-grid", "all");
-  }
+  const related = PRODUCTS
+    .filter(p =>
+      p.flavor === currentProduct.flavor &&
+      p.id !== currentProduct.id
+    )
+    .slice(0, 4);
 
-  loadProductPage();
+  const container = document.getElementById("related-products");
+  if (!container) return;
 
-});
-document.addEventListener("DOMContentLoaded", () => {
+  container.innerHTML = related.map(p => `
+    <div class="product-card">
+
+      <img src="${p.image}" alt="${p.name}">
+      <h3>${p.name}</h3>
+
+      <span class="price">₹${p.price}</span>
+
+      <a href="product.html?id=${p.id}" class="btn primary">
+        View Product
+      </a>
+
+    </div>
+  `).join("");
+}
+
+/* ---------- SEARCH ---------- */
+function initSearch() {
+
   const searchInput = document.getElementById("search-input");
-
   if (!searchInput) return;
 
   searchInput.addEventListener("input", (e) => {
+
     const value = e.target.value.toLowerCase();
 
     const filtered = PRODUCTS.filter(p =>
@@ -232,48 +251,40 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     const container = document.getElementById("product-grid");
-
-    if (container) {
-      container.innerHTML = filtered.map(product => `
-        <div class="product-card">
-          <img src="${product.image}" />
-          <h3>${product.name}</h3>
-          <p>${product.description}</p>
-          <span class="price">₹${product.price}</span>
-
-          <div class="product-actions">
-            <button onclick='addToCart(${JSON.stringify(product).replace(/"/g, "&quot;")})'>
-              Add to Cart
-            </button>
-
-            <a href="product.html?id=${product.id}">
-              View Product
-            </a>
-          </div>
-        </div>
-      `).join("");
-    }
-  });
-});
-function loadRelatedProducts(currentProduct) {
-
-    const related = products
-        .filter(p => p.category === currentProduct.category && p.id !== currentProduct.id)
-        .slice(0, 4);
-
-    const container = document.getElementById("related-products");
-
     if (!container) return;
 
-    container.innerHTML = related.map(p => `
-        <div class="product-card">
-            <img src="${p.image}" alt="${p.name}">
-            <h3>${p.name}</h3>
-            <p>₹${p.price}</p>
+    container.innerHTML = filtered.map(product => `
+      <div class="product-card">
 
-            <a href="product.html?id=${p.id}" class="btn primary">
-                View Product
-            </a>
+        <img src="${product.image}">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+
+        <span class="price">₹${product.price}</span>
+
+        <div class="product-actions">
+
+          <button onclick='addToCart(${JSON.stringify(product).replace(/"/g, "&quot;")})'>
+            Add to Cart
+          </button>
+
+          <a href="product.html?id=${product.id}">
+            View Product
+          </a>
+
         </div>
+
+      </div>
     `).join("");
+  });
 }
+
+/* ---------- INIT ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+
+  renderFeaturedProducts();
+  renderProducts("product-grid", "all");
+  loadProductPage();
+  initSearch();
+
+});
