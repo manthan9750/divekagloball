@@ -477,4 +477,41 @@ img {
 .btn:active {
   transform: scale(0.97);
 }
+.social-connect {
+    padding: 70px 0;
+    text-align: center;
+    background: #fff;
+}
 
+.social-connect h2 {
+    margin-bottom: 10px;
+}
+
+.social-connect p {
+    max-width: 600px;
+    margin: auto;
+    color: #666;
+}
+
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    padding: 12px 22px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .3s;
+    border: 1px solid #B68B22;
+    color: #B68B22;
+}
+
+.social-btn:hover {
+    background: #B68B22;
+    color: white;
+}
