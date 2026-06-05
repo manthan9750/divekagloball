@@ -144,38 +144,134 @@ body {
   font-size: 28px;
   margin: 40px 0;
 }
+/* ================= PRODUCT CARD FIX ================= */
 
-/* ---------- PRODUCT GRID ---------- */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
 }
 
+/* FORCE UNIFORM CARD SIZE */
 .product-card {
-  background: white;
+  background: #fff;
+  border-radius: 14px;
   padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  transition: 0.3s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: 0.3s ease;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
-}
-
+/* IMAGE FIX (VERY IMPORTANT) */
 .product-card img {
   width: 100%;
+  height: 180px;
+  object-fit: cover;
   border-radius: 10px;
 }
 
+/* TITLE CONSISTENCY */
 .product-card h3 {
-  margin: 10px 0;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
+/* DESCRIPTION LIMIT */
+.product-card p {
+  font-size: 13px;
+  color: #555;
+  height: 40px;
+  overflow: hidden;
+}
+
+/* PRICE */
 .price {
-  color: #B68B22;
+  margin: 10px 0;
+  font-size: 16px;
   font-weight: 600;
+  color: #B68B22;
+}
+
+/* ================= BUTTON SYSTEM FIX ================= */
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.product-actions button,
+.product-actions a {
+  padding: 8px 10px;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+/* ADD TO CART */
+.product-actions button {
+  background: #B68B22;
+  color: white;
+}
+
+/* VIEW PRODUCT */
+.product-actions a {
+  background: transparent;
+  border: 1px solid #B68B22;
+  color: #B68B22;
+}
+
+.product-actions a:hover {
+  background: #B68B22;
+  color: white;
+}
+/* ================= PRODUCT DETAIL FIX ================= */
+
+.product-grid-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* MAIN IMAGE SMALLER */
+.product-images img#main-product-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* THUMBNAILS */
+.thumbnail-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.thumbnail-row img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* PRODUCT INFO CLEAN */
+.product-info h1 {
+  font-size: 26px;
+}
+
+.product-info p {
+  font-size: 14px;
+  color: #555;
 }
 
 /* ---------- WHY SECTION ---------- */
@@ -279,4 +375,46 @@ body {
   .nav {
     display: none;
   }
+}
+/* ================= SEARCH BAR ================= */
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+.search-box::before {
+  content: "🔍";
+  margin-right: 8px;
+}
+/* ================= GLOBAL IMAGE CONTROL ================= */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* HERO IMAGE FIX */
+.hero-image img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* ABOUT / BENEFITS IMAGES */
+.about-image img,
+.ayurveda-image img {
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
 }
