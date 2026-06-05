@@ -255,3 +255,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+function loadRelatedProducts(currentProduct) {
+
+    const related = products
+        .filter(p => p.category === currentProduct.category && p.id !== currentProduct.id)
+        .slice(0, 4);
+
+    const container = document.getElementById("related-products");
+
+    if (!container) return;
+
+    container.innerHTML = related.map(p => `
+        <div class="product-card">
+            <img src="${p.image}" alt="${p.name}">
+            <h3>${p.name}</h3>
+            <p>₹${p.price}</p>
+
+            <a href="product.html?id=${p.id}" class="btn primary">
+                View Product
+            </a>
+        </div>
+    `).join("");
+}
