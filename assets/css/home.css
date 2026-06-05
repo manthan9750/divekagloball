@@ -1,0 +1,165 @@
+/* =====================================
+   HOME PAGE ONLY
+   Divekaa Global
+===================================== */
+
+/* ---------- HERO ---------- */
+
+.home-hero {
+    padding: 80px 0;
+}
+
+.home-hero .hero-grid {
+    align-items: center;
+    gap: 60px;
+}
+
+.home-hero .hero-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* ---------- HERO CONTENT ---------- */
+
+.home-hero h1 {
+    font-size: 52px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.home-hero p {
+    font-size: 17px;
+    max-width: 600px;
+}
+
+/* ---------- TRUST STRIP ---------- */
+
+.trust-strip {
+    padding: 40px 0;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.trust-card {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+/* ---------- FEATURED PRODUCTS ---------- */
+
+.featured-products {
+    padding: 70px 0;
+}
+
+/* ---------- ABOUT PREVIEW ---------- */
+
+.home-about {
+    padding: 80px 0;
+}
+
+.home-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.home-about-image img {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.home-about-content h2 {
+    margin-bottom: 20px;
+}
+
+/* ---------- TESTIMONIALS ---------- */
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+}
+
+/* ---------- INSTAGRAM ---------- */
+
+.instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+.instagram-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ---------- SOCIAL CONNECT ---------- */
+
+.social-connect {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    padding: 12px 24px;
+    border-radius: 40px;
+    border: 1px solid #B68B22;
+    text-decoration: none;
+    color: #B68B22;
+    transition: .3s;
+}
+
+.social-btn:hover {
+    background: #B68B22;
+    color: white;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:768px){
+
+    .home-about-grid,
+    .trust-grid,
+    .testimonial-grid,
+    .instagram-grid{
+        grid-template-columns:1fr;
+    }
+
+    .home-hero h1{
+        font-size:36px;
+    }
+
+    .home-hero .hero-image img{
+        height:280px;
+    }
+
+}
