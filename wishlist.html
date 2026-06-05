@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Wishlist | Divekaa Global</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container nav-container">
+
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="logo">
+      <span>Divekaa Global</span>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="benefits.html">Benefits</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-icons">
+      <a href="wishlist.html" class="icon-btn">♡</a>
+      <a href="cart.html" class="icon-btn">🛒 <span id="cart-count">0</span></a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ================= PAGE TITLE ================= -->
+<section class="container" style="padding:40px 0;">
+  <h1 class="section-title">Your Wishlist</h1>
+  <p style="text-align:center; color:#666;">
+    Save your favorite Gud Bite flavors here ❤️
+  </p>
+</section>
+
+<!-- ================= WISHLIST CONTENT ================= -->
+<section class="container">
+
+  <div id="wishlist-items" class="product-grid">
+    <!-- JS will render wishlist products here -->
+  </div>
+
+</section>
+
+<!-- ================= EMPTY STATE ================= -->
+<div id="empty-wishlist" style="text-align:center; display:none; padding:50px;">
+  <h2>Your Wishlist is Empty</h2>
+  <p>Add products you love to see them here.</p>
+  <a href="products.html" class="btn primary">Explore Products</a>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <div>
+      <h3>Divekaa Global</h3>
+      <p>Global Reach, Indian Roots</p>
+    </div>
+
+    <div>
+      <h4>Links</h4>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="benefits.html">Benefits</a>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Divekaa Global. All rights reserved.
+  </div>
+</footer>
+
+<!-- ================= JS ================= -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/wishlist.js"></script>
+
+</body>
+</html>
